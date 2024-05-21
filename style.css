@@ -40,9 +40,12 @@ p {
 .img {
   width: 100px;
   height: 100px;
+  margin-top: 10px;
 }
 
 .img-correios {
   width: 60px;
   height: auto;
+  margin-bottom: 10px;
 }
+
