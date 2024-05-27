@@ -23,6 +23,7 @@ $(document).ready(function() {
                 const item = new ClipboardItem({ 'image/png': blob });
                 navigator.clipboard.write([item]).then(function() {
                     alert('Imagem copiada!');
+                    $("#orcamento")[0].reset();
                 }).catch(function(error) {
                     console.error('Erro: ', error);
                 });
@@ -47,5 +48,7 @@ $(document).ready(function() {
 
         // Abre a URL na mesma aba
         window.open(url, '_blank');
+
+        $("#rastreamento")[0].reset();
     });
 });
