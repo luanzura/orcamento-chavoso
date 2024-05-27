@@ -30,3 +30,22 @@ $(document).ready(function() {
         });
     });
 });
+
+$(document).ready(function() {
+    $('#enviar').click(function() {
+
+        const nomeClient = $("#nomeCliente").val();
+        const codRastreamento = $("#codRastreamento").val();
+        const whastappNumero = $("#whastappNumero").val();
+        const idPedido = $("#idPedido").val();
+        const freteTipo = $('input[type="radio"]:checked').val();
+
+        const mensagem = `🎉️ Olá ${nomeClient}!\nSeu pedido *${idPedido}* já foi enviado! 😍🙌\n\nVocê poderá rastrear seu pedido a partir das 16:00 de hoje! 🔍\n\nCódigo de rastreamento: *${codRastreamento}*\nTransportadora: *Correios ${freteTipo}*\n\nUtilize este link direto para rastreamento:\nhttps://app.melhorrastreio.com.br/app/correios/${codRastreamento}\n\nSe tiver dúvidas, estamos aqui para ajudar! 🤝💬`;
+        const mensagemCodificada = encodeURIComponent(mensagem);
+        const url = `https://web.whatsapp.com/send?phone=+55${whastappNumero}&text=${mensagemCodificada}`;
+
+
+        // Abre a URL na mesma aba
+        window.open(url, '_blank');
+    });
+});
