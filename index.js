@@ -42,7 +42,6 @@ $(document).ready(function () {
     const whastappNumero = $("#whastappNumero").val();
     const idPedido = $("#idPedido").val();
     const freteTipo = $('input[type="radio"]:checked').val();
-    const cep = $("#cep").val();
     const rua = $("#rua").val();
     const numero = $("#numero").val();
     const bairro = $("#bairro").val();
