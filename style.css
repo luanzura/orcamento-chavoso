@@ -1,0 +1,51 @@
+p {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+}
+
+.nubank {
+  color: #8E0CBF;
+  font-weight: 700;
+}
+
+.pix {
+  color: #38BEB0;
+  font-weight: 700;
+}
+
+.resultado {
+  font-weight: 500;
+}
+
+.desconto {
+  color: red;
+  font-weight: 500;
+}
+
+.total {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.frete-tipo {
+  color: rgb(76, 76, 228);
+}
+
+.tipo-frete {
+  margin-top: 60px;
+}
+
+.img {
+  width: 100px;
+  height: 100px;
+  margin-top: 10px;
+}
+
+.img-correios {
+  width: 60px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
