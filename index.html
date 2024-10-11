@@ -16,7 +16,7 @@
     <div class="row d-flex justify-content-center m-0">
       <div class="col-lg-6">
         <div
-          class="container col-lg-9 border rounded my-5 pt-5 bg-light shadow-lg p-3 mb-5 rounded"
+          class="container col-lg-12 border rounded my-5 pt-5 bg-light shadow-lg p-3 mb-5 rounded"
         >
           <form id="orcamento">
             <div class="row bg-light">
@@ -56,6 +56,36 @@
                     id="SEDEX"
                   />
                   <label class="form-check-label" for="SEDEX"> SEDEX </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    value="LOGGI"
+                    name="tipoFrete"
+                    id="LOGGI"
+                  />
+                  <label class="form-check-label" for="LOGGI"> LOGGI </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    value="REDESUL"
+                    name="tipoFrete"
+                    id="REDESUL"
+                  />
+                  <label class="form-check-label" for="REDESUL"> REDESUL </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    value="JADLOG"
+                    name="tipoFrete"
+                    id="JADLOG"
+                  />
+                  <label class="form-check-label" for="JADLOG"> JADLOG </label>
                 </div>
               </div>
               <div class="col-lg-12 d-flex justify-content-center mt-4">
@@ -110,7 +140,10 @@
             </div>
             <div class="col-lg-6 bg-light text-center">
               <img class="img" src="img/pix.png" alt="Pix logo" />
-              <h5 class="mb-5">Pagamento com <span class="pix">PIX</span></h5>
+              <h5>Pagamento com <span class="pix">PIX</span></h5>
+              <p class="mb-2">
+                <strong class="pix">Pagamentos</strong> realizados via <strong class="pix">PIX</strong> garantem um desconto exclusivo
+              </p>
               <p class="border-bottom">
                 QUANTIDADE: <span class="resultado quantidadeResultado"></span>
               </p>

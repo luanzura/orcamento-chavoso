@@ -7,6 +7,20 @@ $(document).ready(function () {
     const freteTipo = $('input[type="radio"]:checked').val();
     const totalSemDesconto = valorTotal + frete;
     const totalComDesconto = valorTotal - desconto + frete;
+    const correios = "img/correios.png"
+    const loggi = "img/loggi.png"
+    const redesul = "img/redesul.png"
+    const jadlog = "img/jadlog.png"
+
+    if (freteTipo === "SEDEX" || freteTipo === "PAC") {
+      $(".img-correios").attr("src", correios);
+    } else if (freteTipo === "REDESUL") {
+      $(".img-correios").attr("src", redesul);
+    } else if (freteTipo === "LOGGI") {
+      $(".img-correios").attr("src", loggi);
+    } else {
+      $(".img-correios").attr("src", jadlog);
+    }
 
     $(".quantidadeResultado").text(quantidade);
     $(".valorResultado").text("R$" + valorTotal.toFixed(2));
