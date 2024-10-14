@@ -7,11 +7,12 @@ $(document).ready(function () {
     const freteTipo = $('input[type="radio"]:checked').val();
     const totalSemDesconto = valorTotal + frete;
     const totalComDesconto = valorTotal - desconto + frete;
-    const correios = "img/correios.png"
-    const loggi = "img/loggi.png"
-    const redesul = "img/redesul.png"
-    const jadlog = "img/jadlog.png"
+    const correios = "img/correios.png";
+    const loggi = "img/loggi.png";
+    const redesul = "img/redesul.png";
+    const jadlog = "img/jadlog.png";
 
+    // Verifica o frete selecionado e altera a imagem antes da captura
     if (freteTipo === "SEDEX" || freteTipo === "PAC") {
       $(".img-correios").attr("src", correios);
     } else if (freteTipo === "REDESUL") {
@@ -22,6 +23,7 @@ $(document).ready(function () {
       $(".img-correios").attr("src", jadlog);
     }
 
+    // Atualiza os valores visíveis na página
     $(".quantidadeResultado").text(quantidade);
     $(".valorResultado").text("R$" + valorTotal.toFixed(2));
     $(".freteValorResultado").text("R$" + frete.toFixed(2));
@@ -29,46 +31,24 @@ $(document).ready(function () {
     $(".descontoResultado").text("R$" + desconto.toFixed(2));
     $(".totalSemResultado").text("R$" + totalSemDesconto.toFixed(2));
     $(".totalComResultado").text("R$" + totalComDesconto.toFixed(2));
-  });
 
-  $("#gerar").on("click", function () {
-    html2canvas(document.querySelector(".gerar")).then((canvas) => {
-      canvas.toBlob(function (blob) {
-        const item = new ClipboardItem({ "image/png": blob });
-        navigator.clipboard
-          .write([item])
-          .then(function () {
-            alert("Imagem copiada!");
-            $("#orcamento")[0].reset();
-          })
-          .catch(function (error) {
-            console.error("Erro: ", error);
-          });
+    // Aguarda um pequeno delay para garantir que o DOM foi atualizado
+    setTimeout(function () {
+      // Captura a imagem correta após a atualização do DOM
+      html2canvas(document.querySelector(".gerar")).then((canvas) => {
+        canvas.toBlob(function (blob) {
+          const item = new ClipboardItem({ "image/png": blob });
+          navigator.clipboard
+            .write([item])
+            .then(function () {
+              alert("Imagem copiada!");
+              $("#orcamento")[0].reset();
+            })
+            .catch(function (error) {
+              console.error("Erro: ", error);
+            });
+        });
       });
-    });
+    }, 100); // Tempo de atraso para garantir a atualização do DOM
   });
 });
-
-// $(document).ready(function () {
-//   $("#enviar").click(function () {
-//     const nomeClient = $("#nomeCliente").val();
-//     const codRastreamento = $("#codRastreamento").val();
-//     const whastappNumero = $("#whastappNumero").val();
-//     const idPedido = $("#idPedido").val();
-//     const freteTipo = $('input[type="radio"]:checked').val();
-//     const rua = $("#rua").val();
-//     const numero = $("#numero").val();
-//     const bairro = $("#bairro").val();
-//     const cidade = $("#cidade").val();
-//     const estado = $("#estado").val();
-
-//     const mensagem = `🎉️ Olá ${nomeClient}!\nSeu pedido *${idPedido}* já foi enviado! 😍🙌\n\nVocê poderá rastrear seu pedido a partir das 16:00 de hoje! 🔍\n\nCódigo de rastreamento: *${codRastreamento}*\nTransportadora: *Correios ${freteTipo}*\n\nCertifique-se de revisar o endereço de entrega abaixo para garantir que esteja correto:\n*${rua} ${numero}*\n*${bairro}*\n*${cidade} - ${estado}*\n\nUtilize este link direto para rastreamento:\nhttps://app.melhorrastreio.com.br/app/correios/${codRastreamento}\n\nSe tiver dúvidas, estamos aqui para ajudar! 🤝💬`;
-//     const mensagemCodificada = encodeURIComponent(mensagem);
-//     const url = `https://web.whatsapp.com/send?phone=+55${whastappNumero}&text=${mensagemCodificada}`;
-
-//     // Abre a URL na mesma aba
-//     window.open(url, "_blank");
-
-//     $("#rastreamento")[0].reset();
-//   });
-// });
